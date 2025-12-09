@@ -4,6 +4,9 @@
 
 Database digunakan untuk menyimpan data produk, stok, dan transaksi pembelian pada sistem furniture store.
 
+Dashboard:
+https://github.com/doltonsedward/simple-product-dashboard
+
 ## Tables
 
 ### 1. products
