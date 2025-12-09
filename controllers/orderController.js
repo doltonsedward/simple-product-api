@@ -2,7 +2,7 @@ import { db } from "../config/db.js";
 
 export const getOrders = async (req, res) => {
   const [rows] = await db.query(
-    "SELECT orders.*, products.name FROM orders JOIN products ON orders.product_id = products.id ORDER BY created_at DESC"
+    "SELECT orders.*, products.name as product_name FROM orders JOIN products ON orders.product_id = products.id ORDER BY created_at DESC"
   );
   res.json(rows);
 };
@@ -30,7 +30,7 @@ export const createOrder = async (req, res) => {
 };
 
 export const cancelOrder = async (req, res) => {
-  const { order_id } = req.body;
+  const { order_id } = req.body; // Kalau frontend pakai {id}, ubah ke { id }
   const [[order]] = await db.query("SELECT * FROM orders WHERE id = ?", [
     order_id,
   ]);
